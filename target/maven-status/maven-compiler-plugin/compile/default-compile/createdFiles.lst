@@ -1,0 +1,6 @@
+com\odx\test\entity\Demo.class
+com\odx\test\TestApplication.class
+com\odx\test\dao\DemoRepository.class
+com\odx\test\cotroller\DemoController.class
+com\odx\test\exception\InvalidInputException.class
+com\odx\test\service\DemoDataProviderService.class
