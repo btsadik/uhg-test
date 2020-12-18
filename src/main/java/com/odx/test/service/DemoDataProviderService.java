@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.odx.test.dao.DemoRepository;
 import com.odx.test.entity.Demo;
-import com.odx.test.exception.DemoNotFoundException;
 import com.odx.test.exception.InvalidInputException;
 
 @Service
@@ -23,17 +22,17 @@ public DemoDataProviderService(DemoRepository demoRepository) {
 	this.demoRepository = demoRepository;
 }
  /**
-  * This retuns all demo data
+  * This method returns all demo data
   * @return
   */
  public List<Demo> getAllDemoData(){
 	 return demoRepository.findAll();
  }
  /**
-  * This returns all demo data having the given name
+  * This methods returns all demo data having the given name
   * @param name
   * @return
-  * @throws InvalidInputException
+  * 
   */
  public List<Demo> getDemoDataGivenName(String name){
 	if(StringUtils.isBlank(name)){
@@ -46,7 +45,7 @@ public DemoDataProviderService(DemoRepository demoRepository) {
   * @param id
   * @param name
   * @return
-  * @throws InvalidInputException
+  * 
   */
 	public Demo createDemo(Integer id, String name)  {
 		if (id == null || id == 0) {
@@ -59,10 +58,10 @@ public DemoDataProviderService(DemoRepository demoRepository) {
 		return demoRepository.save(demo);
 	}
 	/**
-	 * This method deleted a demo given id
+	 * This method deletes a demo given id
 	 * @param id
 	 * @return
-	 * @throws DemoNotFoundException 
+	 * 
 	 */
 	public String deleteDemo(Integer demoId) {
 		try {	

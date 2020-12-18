@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.odx.test.entity.Demo;
-import com.odx.test.exception.DemoNotFoundException;
-import com.odx.test.exception.InvalidInputException;
 import com.odx.test.service.DemoDataProviderService;
 
 @RestController
@@ -32,17 +30,17 @@ public class DemoController {
 		return ResponseEntity.ok(demoDataProviderService.getAllDemoData());
 	}
     @GetMapping("/someDemo")
-   	public ResponseEntity<List<Demo>> getDamoDataGivenName(@RequestParam String name) throws InvalidInputException{
+   	public ResponseEntity<List<Demo>> getDamoDataGivenName(@RequestParam String name) {
    		return ResponseEntity.ok(demoDataProviderService.getDemoDataGivenName(name));
    	}
     
     @PostMapping("/createDemo")
-   	public ResponseEntity<Demo> createDemoData(@RequestParam Integer id,@RequestParam String name) throws InvalidInputException{
+   	public ResponseEntity<Demo> createDemoData(@RequestParam Integer id,@RequestParam String name) {
    		return ResponseEntity.ok(demoDataProviderService.createDemo(id, name));
    	}
     
     @DeleteMapping("/deleteDemo")
-   	public ResponseEntity<String> deleteDemoData(@RequestParam Integer id) throws DemoNotFoundException {
+   	public ResponseEntity<String> deleteDemoData(@RequestParam Integer id) {
    		return ResponseEntity.ok(demoDataProviderService.deleteDemo(id));
    	}
 }
